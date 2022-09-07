@@ -20,16 +20,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// 管理画面
+// Route::prefix('/admin')
+//      ->('admin')
+//      ->('middleware')('auth')
+//      ->group(function(){
+
+
+//      })
+
+
 //レシピ
 Route::get('/admin/recipis', [AdminRecipiController::class, 'index'])->name('admin.recipis.index');
-Route::get('/admin/recipis/create', [AdminRecipiController::class, 'create'])->name('admin.recipis.create');
-Route::post('/admin/recipis', [AdminRecipiController::class, 'store'])->name('admin.recipis.store');
-Route::get('/admin/recipis/{recipi}', [AdminRecipiController::class, 'edit'])->name('admin.recipis.edit');
+Route::get('/admin/recipis/create', [AdminRecipiController::class, 'create'])->name('admin.recipis.create')->middleware('auth');
+Route::post('/admin/recipis', [AdminRecipiController::class, 'store'])->name('admin.recipis.store')->middleware('auth');
+Route::get('/admin/recipis/{recipi}', [AdminRecipiController::class, 'edit'])->name('admin.recipis.edit')->middleware('auth');
+Route::put('/admin/recipis/{recipi}', [AdminRecipiController::class, 'update'])->name('admin.recipis.update')->middleware('auth');
+Route::delete('/admin/recipis/{recipi}', [AdminRecipiController::class, 'destroy'])->name('admin.recipis.destroy')->middleware('auth');
 
 // ユーザー登録
-Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
+Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create')->middleware('auth');
 Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
 
 // 認証
-Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
+Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login')->middleware('guest');
 Route::post('/admin/login', [AuthController::class, 'login']);
+Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');

@@ -59,7 +59,7 @@
                             <span>レシピ管理</span>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 hover:bg-gray-900 rounded" href="/admin/contacts">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +68,7 @@
                 </span>
                             <span>お問い合わせ管理</span>
                         </a>
-                    </li>
+                    </li> --}}
                     {{-- <li>
                         <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 hover:bg-gray-900 rounded" href="#">
                 <span class="inline-block mr-3">
@@ -90,7 +90,8 @@
                         <span>設定</span>
                     </a> --}}
 
-                    <form>
+                    <form action="{{ route('admin.logout') }}" method="POST">
+                        @csrf
                         <button type="submit" class="w-full flex items-center pl-3 py-3 pr-2 text-gray-50 hover:bg-gray-900 rounded">
               <span class="inline-block mr-4">
                 <svg class="text-gray-600 w-5 h-5" viewbox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
