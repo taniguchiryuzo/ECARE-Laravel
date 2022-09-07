@@ -17,19 +17,19 @@
                     <th class="font-medium">カテゴリ</th>
                     <th class="font-medium">食形態</th>
                     <th class="font-medium">更新日時</th>
-                    <th class="font-medium">操作</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
                     @foreach ($recipis as $recipi )
                     <tr @class(['text-sm'.'bg-gray-50' => $loop->odd])>
-                    <td class="flex px-4 py-3 items-center">
+                    <td class="flex px-4 py-3 recipis-center">
                         <img class="w-12 h-12 mr-4 object-cover rounded-md" src="{{ asset('storage/'.$recipi->image) }}" alt="">
                         <p class="font-medium"><a href="#">{{ $recipi->title }}</a></p>
                     </td>
                     <td class="font-medium">{{ $recipi->type }}</td>
                     <td class="font-medium">{{ $recipi->foodform }}</td>
-                    <td>{{ $recipi->updated_at }}</td>
+                    {{-- <td>{{ $recipi->updated_at }}</td> --}}
                     <td>
                         <div class="flex">
                             <a class="mr-2" href="#">

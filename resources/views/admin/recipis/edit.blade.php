@@ -34,7 +34,7 @@
                     <div class="mb-6">
                         <label class="block text-sm font-medium mb-2" for="image">画像</label>
                         <div class="flex items-end">
-                            <img id="previewImage" src="{{ asset('storage/'.$recipi->image) }}" data-noimage="{{ asset('storage/'.$recipi->image) }}" alt="" class="rounded shadow-md w-64">
+                            <img id="previewImage" src="{{ asset('storage/'.$recipi->image) }}" data-noimage="{{ asset('storage/'.$recipi->image) }}" alt="" class="rounded shadow-md ">
                             <input id="image" class="block w-full px-4 py-3 mb-2" type="file" accept='image/*' name="image">
                         </div>
                     </div>
