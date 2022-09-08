@@ -17,9 +17,9 @@ use App\Http\Controllers\RecipiController;
 |
 */
 
-Route::get('/index', function () {
-    return view('index');
-});
+// Route::get('/index', function () {
+//     return view('index');
+// });
 
 // 管理画面
 // Route::prefix('/admin')
@@ -49,4 +49,5 @@ Route::post('/admin/login', [AuthController::class, 'login']);
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 // 検索
-Route::get('/index', [RecipiController::class, 'index'])->name('index');
+Route::get('/serch', [RecipiController::class, 'serch'])->name('serch');
+Route::get('/index', [RecipiController::class, 'index']);

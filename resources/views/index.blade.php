@@ -14,44 +14,48 @@
   <div class="container mx-auto">
     <p class="text-center text-2xl">食形態から探そう</p>
    
-  <div class="flex flex-wrap -m-3 container mx-auto pt-8">
-    <div class="w-full lg:w-1/3 p-3">
-      <div class="bg-gray-100 rounded shadow">
-        <div class="flex py-10 px-6">
-          <img class="w-20 h-20 object-cover rounded-full" src="/images/index/foliage-plant.jpg" alt="">
-          <div class="ml-4 w-56">
-            <h3 class="mb-1 text-2xl font-heading text-left text-blue-500">ペースト食</h3>
-         </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-full lg:w-1/3 p-3">
-      <div class="bg-gray-100 rounded shadow">
-        <div class="flex py-10 px-6">
-          <img class="w-20 h-20 object-cover rounded-full" src="/images/index/sanitizer.jpg" alt="">
-          <div class="ml-4 w-56">
-            <h3 class="mb-1 text-2xl font-heading text-left text-blue-500">衛生管理</h3>
-            <p class="text-left text-gray-500 text-sm">店員・ゲストの検温<br> マスクの常時着用<br> 1時間毎に全ての設備を消毒</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-full lg:w-1/3 p-3">
-      <div class="bg-gray-100 rounded shadow">
-        <div class="flex py-10 px-6">
-          <img class="w-20 h-20 object-cover rounded-full" src="/images/index/health-check.jpg" alt="">
-          <div class="ml-4 w-56">
-            <h3 class="mb-1 text-2xl font-heading text-left text-blue-500">ねこの体調管理</h3>
-            <p class="text-left text-gray-500 text-sm">毎日の検温<br> ワクチン接種済み<br> 定期的な検診</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 </section>
+<div class="text-center">
+<h1>検索条件を入力してください</h1>
+<form action="{{ url('/serch')}}" method="post">
+  {{ csrf_field()}}
+  {{method_field('get')}}
+ 
+    <div class="form-group">
+     <label>食形態</label>
+     <select class="form-control col-md-5" name="foodform">
+       <option selected value="0">選択...</option>
+       <option value="1">ペースト食</option>
+       <option value="2">マッシュ</option>
+       <option value="3">きざみ食</option>
+       <option value="4">ポタージュ</option>
+     </select>
+   </div>
 
+  {{-- <div class="form-group">
+     <label>カテゴリ別</label>
+     <select class="form-control col-md-5" name="type">
+       <option selected value="0">選択...</option>
+       <option value="1">肉料理</option>
+       <option value="2">魚料理</option>
+       <option value="3">大豆・豆腐</option>
+       <option value="4">めん類</option>
+       <option value="5">ごはんもの</option>
+       <option value="6">サラダ</option>
+       <option value="7">スープ・汁物</option>
+       <option value="8">スイーツ</option>
+     </select>
+   </div> --}}
+
+  <button type="submit" class="btn btn-primary col-md-5">検索</button>
+</form>
+
+@if(session('flash_message'))
+<div class="alert alert-primary" role="alert" style="margin-top:50px;">{{ session('flash_message')}}</div>
+@endif
+<div style="margin-top:50px;">
+</div>
 
   </div>
 
