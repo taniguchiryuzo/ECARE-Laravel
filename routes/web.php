@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\Admin\AdminRecipiController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\RecipiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,8 @@ use App\Http\Controllers\Admin\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/index', function () {
+    return view('index');
 });
 
 // 管理画面
@@ -39,10 +40,13 @@ Route::put('/admin/recipis/{recipi}', [AdminRecipiController::class, 'update'])-
 Route::delete('/admin/recipis/{recipi}', [AdminRecipiController::class, 'destroy'])->name('admin.recipis.destroy')->middleware('auth');
 
 // ユーザー登録
-Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create')->middleware('auth');
+Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
 Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
 
 // 認証
 Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login')->middleware('guest');
 Route::post('/admin/login', [AuthController::class, 'login']);
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
+
+// 検索
+Route::get('/index', [RecipiController::class, 'index'])->name('index');

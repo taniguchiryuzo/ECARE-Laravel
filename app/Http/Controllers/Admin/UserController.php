@@ -32,7 +32,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $validated = $request->validated();
-        $validated['image'] = $request->file('image')->store('users', 'public');
+        // $validated['image'] = $request->file('image')->store('users', 'public');
         $validated['password'] = Hash::make($validated['password']);
         User::create($validated);
 

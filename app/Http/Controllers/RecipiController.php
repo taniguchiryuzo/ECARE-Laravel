@@ -15,11 +15,14 @@ class RecipiController extends Controller
     public function index()
     {
 
+        // $recipis = Recipi::all();
+        // return response()->json([
+        //     'message' => 'ok',
+        //     'data'    => $recipis,
+        // ], 200, [], JSON_UNESCAPED_UNICODE);
+
         $recipis = Recipi::all();
-        return response()->json([
-            'message' => 'ok',
-            'data'    => $recipis,
-        ], 200, [], JSON_UNESCAPED_UNICODE);
+        return view('index', ['recipis' => $recipis]);
     }
 
     /**

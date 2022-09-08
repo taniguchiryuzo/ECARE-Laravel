@@ -27,15 +27,6 @@ class StoreUserRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'image' => [
-                'required',
-                'file', // ファイルがアップロードされている
-                'image', // 画像ファイルである
-                'max:2000', // ファイル容量が2000kb以下である
-                'mimes:jpeg,jpg,png', // 形式はjpegかpng
-                // 'dimensions:min_width=700,min_height=700,max_width=700,max_height=700', // 画像の解像度が100px * 100px ~ 300px * 300px
-            ],
-            'introduction' => ['required', 'string', 'max:255'],
         ];
     }
 

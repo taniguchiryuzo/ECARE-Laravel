@@ -88,35 +88,9 @@
                         </div>
                     </div>
 
-                    {{-- <div class="mb-6">
-                        <label class="block text-sm font-medium mb-2">登場するねこ</label>
-                        <select id="js-pulldown" class="mr-6 w-full" name="" multiple>
-                            <option selected>Option 1</option>
-                            <option>Option 2</option>
-                            <option selected>Option 3</option>
-                            <option>Option 4</option>
-                        </select>
-                    </div> --}}
                 </div>
             </form>
         </div>
     </div>
 </section>
-
-<script>
-    // ねこちゃんたち追加
-    $('#js-pulldown').select2();
-
-    // 画像プレビュー
-    document.getElementById('image').addEventListener('change', e => {
-        const previewImageNode = document.getElementById('previewImage')
-        const fileReader = new FileReader()
-        fileReader.onload = () => previewImageNode.src = fileReader.result
-        if (e.target.files.length > 0) {
-            fileReader.readAsDataURL(e.target.files[0])
-        } else {
-            previewImageNode.src = previewImageNode.dataset.noimage
-        }
-    })
-</script>
 @endsection
